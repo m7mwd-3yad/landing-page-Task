@@ -1,3 +1,4 @@
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -132,6 +133,11 @@ body {
 /* Sections */
 .section {
     padding: 3rem 0;
+    border-bottom: 1px solid #eee; /* Divider */
+}
+
+.section:last-child {
+    border-bottom: none;
 }
 
 .section h2 {
@@ -214,13 +220,33 @@ body {
     border-radius: 4px;
 }
 
-/* Reviews */
-blockquote {
-    font-style: italic;
-    max-width: 700px;
-    margin: 1.5rem auto;
+/* Testimonials */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.testimonial {
+    background: #fff;
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
     text-align: center;
-    color: #555;
+    font-size: 0.95rem;
+}
+.testimonial p:first-child {
+    font-size: 1.2rem;
+    color: #ffb400;
+    margin-bottom: 0.5rem;
+}
+.testimonial span {
+    display: block;
+    margin-top: 0.8rem;
+    font-weight: bold;
+    color: #333;
 }
 
 /* Footer */
@@ -242,8 +268,11 @@ blockquote {
     color: #00bcd4;
 }
 
+/* Sticky CTA on mobile */
+.mobile-cta {
+    display: none;
+}
 
-/* Responsive */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -268,5 +297,23 @@ blockquote {
 
     .hamburger {
         display: flex;
+    }
+
+    .mobile-cta {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        padding: 0.5rem;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        display: block;
+        z-index: 999;
+    }
+
+    .mobile-cta .btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
     }
 }
